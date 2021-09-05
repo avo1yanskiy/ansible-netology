@@ -72,7 +72,7 @@
       tags: elastic
   tasks:
    - name: Upload tar.gz Kibana from remote URL
-     get_url:
+      get_url:
         url: "https://artifacts.elastic.co/downloads/kibana/kibana-{{ kibana_version }}-linux-x86_64.tar.gz"
         dest: "/tmp/kinaba-{{ kibana_version }}-linux-x86_64.tar.gz"
         mode: 0755
@@ -97,3 +97,4 @@
         creates: "{{ kibana_home }}/bin/kibana"
       tags:
         - kibana
+    
