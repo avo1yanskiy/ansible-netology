@@ -2,5 +2,5 @@
 elasticsearch:
   hosts:
     localhost:
-      ansible_connection: ssh
+      ansible_connection: local
       ansible_user: root
