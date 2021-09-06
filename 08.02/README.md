@@ -4,4 +4,25 @@ Playbook:
 
 - Устанавливает JAVA
 - Устанавливает Elasticsearch
-- Устанавливает Kibana
+- </h3>Устанавливает Kibana<h3>
+
+
+
+
+
+ew
+ewe
+
+wqe
+qe
+we
+q
+e
+wqeeqwe
+
+qwee
+
+wqe
+weq
+e
+*</h3>Устанавливает Kibana<h3>
