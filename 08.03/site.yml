@@ -52,7 +52,7 @@
       become: true
       yum:
         name: "/tmp/kibana-{{ kibana_version }}-x86_64.rpm"
-        state: started
+        state: present
     - name: Start Kibana
       ansible.builtin.service:
         name: kibana
