@@ -40,7 +40,7 @@
       become: true
       systemd:
         name: kibana
-        state: restarted
+        state: present
   tasks:
     - name: Download Kibana rpm
       get_url:
@@ -53,9 +53,13 @@
       yum:
         name: "/tmp/kibana-{{ kibana_version }}-x86_64.rpm"
         state: started
-    - name: Configure Kibana
-      become: true
-      template:
-        src: kibana.yml.j2
-        dest: /etc/kibana/kibana.yml
-      notify: restart kibana
+    - name: Start Kibana
+      ansible.builtin.service:
+        name: kibana
+        state: started
+  #  - name: Configure Kibana
+  #    become: true
+  #    template:
+   #     src: kibana.yml.j2
+   #     dest: /etc/kibana/kibana.yml
+  #    notify: restart kibana
