@@ -1,5 +1,5 @@
 ---
-- name: Install
+- name: Install MC
   hosts: all
   tasks:
    - name: MC
@@ -35,8 +35,14 @@
       notify: restart Elasticsearch
 - name: Install Kibana
   hosts: kibana
+  handlers:
+    - name: restart Kibana
+      become: true
+      service:
+        name: kibana
+        state: restarted
   tasks:
-    - name: "Download Kibana`a rpm"
+    - name: Download Kibana rpm
       get_url:
         url: "https://artifacts.elastic.co/downloads/kibana/kibana-{{ kibana_version }}-x86_64.rpm"
         dest: "/tmp/kibana-{{{{ kibana_version }}}}}}-x86_64.rpm"
