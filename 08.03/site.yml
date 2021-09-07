@@ -1,4 +1,12 @@
 ---
+- name: Install
+  hosts: all
+  tasks:
+   - name: MC
+     become: true
+     yum:
+      name: mc
+      state: present
 - name: Install Elasticsearch
   hosts: elasticsearch
   handlers:
