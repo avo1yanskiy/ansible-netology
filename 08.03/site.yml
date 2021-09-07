@@ -12,7 +12,7 @@
   handlers:
     - name: restart Elasticsearch
       become: true
-      service:
+      systemd:
         name: elasticsearch
         state: restarted
   tasks:
@@ -38,7 +38,7 @@
   handlers:
     - name: restart Kibana
       become: true
-      service:
+      systemd:
         name: kibana
         state: restarted
   tasks:
@@ -53,3 +53,10 @@
       yum:
         name: "/tmp/kibana-{{ kibana_version }}-x86_64.rpm"
         state: present
+        enable: true
+    - name: Configure Kibana
+      become: true
+      template:
+        src: kibana.yml.j2
+        dest: /etc/kibana/kibana.yml
+      notify: restart kibana
