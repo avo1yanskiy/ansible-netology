@@ -12,7 +12,7 @@ docker run --name centos7 -d pycontribs/centos:7  sleep 6000000
 
 sleep 2 
 
-ansible-playbook site.yml -i inventory/prod.yml  --ask-vault-password
+ansible-playbook site.yml -i inventory/prod.yml
 
 sleep 2 
 
