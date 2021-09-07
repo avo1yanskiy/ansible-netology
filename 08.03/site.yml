@@ -33,3 +33,17 @@
         src: elasticsearch.yml.j2
         dest: /etc/elasticsearch/elasticsearch.yml
       notify: restart Elasticsearch
+- name: Install Kibana
+  hosts: kibana
+  tasks:
+   - name: "Download Kibana`a rpm"
+      get_url:
+        url: "https://artifacts.elastic.co/downloads/kibana/kibana-{{{{ kibana_version }}}}}}-x86_64.rpm"
+        dest: "/tmp/kibana-{{{{ kibana_version }}}}}}-x86_64.rpm"
+      register: download_kibana
+      until: download_kibana is succeeded
+    - name: Install Kibana
+      become: true
+      yum:
+      name: "/tmp/kibana-{{{{ kibana_version }}}}}}-x86_64.rpm"
+      state: present
