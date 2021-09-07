@@ -52,7 +52,7 @@
       become: true
       yum:
         name: "/tmp/kibana-{{ kibana_version }}-x86_64.rpm"
-        state: present
+        state: started
     - name: Configure Kibana
       become: true
       template:
