@@ -46,7 +46,7 @@
         src: elasticsearch.yml.j2
         dest: /etc/elasticsearch/elasticsearch.yml
       notify: restart Elasticsearch
-         tags: elasticsearch
+        tags: elasticsearch
 - name: Install Kibana
   hosts: kibana
   handlers:
