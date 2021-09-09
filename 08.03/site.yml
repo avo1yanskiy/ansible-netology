@@ -7,7 +7,7 @@
      service:
       name: firewalld
       state: stopped
-      enable: False
+      enabled: False
 - name: Install MC
   hosts: all
   tasks:
