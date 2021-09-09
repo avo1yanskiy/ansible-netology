@@ -4,7 +4,9 @@
   tasks:
    - name: Disabled Firewall
      become: true
-      systemd: name=firewalld enabled=no 
+      service:
+      name: firewalld
+      state: stopped 
 - name: Install MC
   hosts: all
   tasks:
