@@ -102,12 +102,12 @@
       become: true
       command:
         cmd: filebeat modules enable system
-        chdir: /usr/share/filebeat/bin
-    - name: Load Kibana dashboard
+        chdir: 
+    - name: zagruzka Kibana dashboard
       become: true
       command:
         cmd: filebeat setup
         chdir: /usr/share/filebeat/bin
-        register: filebeat_setup
-        until: filebeat_setup is ok
-        notify: restart filebeat
+      #  register: filebeat_setup
+      #  until: filebeat_setup is ok
+      #  notify: restart filebeat
