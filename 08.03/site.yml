@@ -111,7 +111,7 @@
       become: true
       command:
         cmd: filebeat modules enable system
-        chdir: 
+        chdir: /usr/share/filebeat/bin
     - name: zagruzka Kibana dashboard
       become: true
       command:
