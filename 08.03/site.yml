@@ -39,14 +39,16 @@
       yum:
         name: "/tmp/elasticsearch-{{ elk_stack_version }}-x86_64.rpm"
         state: present
-        tags: elasticsearch
+        tags: 
+          - elasticsearch
     - name: Configure Elasticsearch
       become: true
       template:
         src: elasticsearch.yml.j2
         dest: /etc/elasticsearch/elasticsearch.yml
       notify: restart Elasticsearch
-        tags: elasticsearch
+        tags: 
+          - elasticsearch
 - name: Install Kibana
   hosts: kibana
   handlers:
@@ -70,7 +72,7 @@
         name: "/tmp/kibana-{{ kibana_version }}-x86_64.rpm"
         state: present
         tags: 
-        - kibana
+          - kibana
     - name: Start Kibana
       ansible.builtin.service:
         name: kibana
@@ -82,7 +84,7 @@
         dest: /etc/kibana/kibana.yml
       notify: restart kibana
       tags: 
-        - kibana
+          - kibana
 - name: Install filebeat
   hosts: application-instance
   handlers:
