@@ -52,7 +52,8 @@
         name: kibana
         state: restarted
         enabled: true
-        tags: kibana
+        tags: 
+          - kibana
   tasks:
     - name: Download Kibana rpm
       get_url:
@@ -66,7 +67,8 @@
         name: "/tmp/kibana-{{ kibana_version }}-x86_64.rpm"
         state: present
       notify: restart Kibana
-      tags: kibana
+      tags: 
+        - kibana
     - name: Start Kibana
       ansible.builtin.service:
         name: kibana
@@ -77,7 +79,8 @@
         src: kibana.yml.j2
         dest: /etc/kibana/kibana.yml
       notify: restart Kibana
-      tags: kibana
+      tags: 
+        - kibana
 - name: Install filebeat
   hosts: application-instance
   handlers:
