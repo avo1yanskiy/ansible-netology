@@ -4,7 +4,7 @@
   tasks:
    - name: Disabled Firewall
      become: true
-     service:
+     systemd:
       name: firewalld
       state: stopped
       enable: False 
