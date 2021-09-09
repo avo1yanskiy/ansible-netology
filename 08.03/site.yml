@@ -101,7 +101,7 @@
     - name: Set filebeat systemwork
       become: true
       command:
-        cmd: filebeat module enable system
+        cmd: filebeat modules enable system
         chdir: /usr/share/filebeat/bin
     - name: Load Kibana dashboard
       become: true
