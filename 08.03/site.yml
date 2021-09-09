@@ -8,8 +8,6 @@
       name: firewalld
       state: stopped
       enabled: False
-      tags: 
-        - firewall
 - name: Install MC
   hosts: all
   tasks:
