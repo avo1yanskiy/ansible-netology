@@ -21,7 +21,7 @@
   handlers:
     - name: restart Elasticsearch
       become: true
-      systemd:
+      service:
         name: elasticsearch
         state: restarted
         enabled: true
@@ -48,7 +48,7 @@
   handlers:
     - name: restart Kibana
       become: true
-      systemd:
+      service:
         name: kibana
         state: restarted
         tags: 
@@ -85,10 +85,9 @@
   handlers:
     - name: restart filebeat
       become: true
-      systemd:
+      service:
         name: filebeat
         state: restarted
-        enabled: true
   tasks:
     - name: "Download filebeat rpm"
       get_url:
