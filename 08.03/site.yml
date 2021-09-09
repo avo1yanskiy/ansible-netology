@@ -8,6 +8,7 @@
       name: firewalld
       state: stopped
       enabled: False
+      tags: firewall
 - name: Install MC
   hosts: all
   tasks:
@@ -16,6 +17,7 @@
      yum:
       name: mc
       state: present
+      tags: mc
 - name: Install Elasticsearch
   hosts: elasticsearch
   handlers:
@@ -37,16 +39,18 @@
       yum:
         name: "/tmp/elasticsearch-{{ elk_stack_version }}-x86_64.rpm"
         state: present
+        tags: elasticsearch
     - name: Configure Elasticsearch
       become: true
       template:
         src: elasticsearch.yml.j2
         dest: /etc/elasticsearch/elasticsearch.yml
       notify: restart Elasticsearch
+         tags: elasticsearch
 - name: Install Kibana
   hosts: kibana
   handlers:
-    - name: restart Kibana
+    - name: restart kibana
       become: true
       service:
         name: kibana
@@ -65,8 +69,7 @@
       yum:
         name: "/tmp/kibana-{{ kibana_version }}-x86_64.rpm"
         state: present
-      notify: restart Kibana
-      tags: 
+        tags: 
         - kibana
     - name: Start Kibana
       ansible.builtin.service:
@@ -77,7 +80,7 @@
       template:
         src: kibana.yml.j2
         dest: /etc/kibana/kibana.yml
-      notify: restart Kibana
+      notify: restart kibana
       tags: 
         - kibana
 - name: Install filebeat
