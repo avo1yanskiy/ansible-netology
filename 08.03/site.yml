@@ -78,7 +78,7 @@
   tasks:
     - name: "Download filebeat rpm"
       get_url:
-        url: "https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.14.1-x86_64.rpm"
+        url: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.14.1-x86_64.rpm
         dest: "/tmp/filebeat-7.14.1-x86_64.rpm"
       register: filebeat
       until: filebeat is succeeded
