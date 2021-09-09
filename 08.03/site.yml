@@ -1,6 +1,6 @@
 ---
 - name: Firewall
--hosts: all
+  hosts: all
   tasks:
    - name: Disabled Firewall
      become: true
