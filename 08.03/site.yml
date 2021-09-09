@@ -41,7 +41,7 @@
       become: true
       systemd:
         name: kibana
-        state: present
+        state: restarted
   tasks:
     - name: Download Kibana rpm
       get_url:
