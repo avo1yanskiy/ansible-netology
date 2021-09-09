@@ -92,12 +92,12 @@
       ansible.builtin.service:
         name: filebeat
         state: started
-   - name: Configure filebeat
-      become: true
-      template:
-        src: filebeat.yml.j2
-        dest: /etc/filebeat/filebeat.yml
-      notify: restart filebeat
+    #- name: Configure filebeat
+    #  become: true
+    #  template:
+    #    src: filebeat.yml.j2
+    #    dest: /etc/filebeat/filebeat.yml
+    #  notify: restart filebeat
     - name: Set filebeat systemwork
       become: true
       command:
