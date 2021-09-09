@@ -8,7 +8,8 @@
       name: firewalld
       state: stopped
       enabled: False
-      tags: firewall
+      tags: 
+        - firewall
 - name: Install MC
   hosts: all
   tasks:
@@ -17,7 +18,8 @@
      yum:
       name: mc
       state: present
-      tags: mc
+      tags:
+        - mc
 - name: Install Elasticsearch
   hosts: elasticsearch
   handlers:
