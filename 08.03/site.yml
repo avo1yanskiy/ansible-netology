@@ -114,7 +114,7 @@
         chdir: /usr/share/filebeat/bin
     - name: zagruzka Kibana dashboard
       become: true
-       command:
+        command:
         cmd: filebeat setup
         chdir: /usr/share/filebeat/bin
       register: filebeat_setup
