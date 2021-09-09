@@ -51,7 +51,6 @@
       systemd:
         name: kibana
         state: restarted
-        enabled: true
         tags: 
           - kibana
   tasks:
