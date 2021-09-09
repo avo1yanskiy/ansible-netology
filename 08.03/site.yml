@@ -66,8 +66,8 @@
         src: kibana.yml.j2
         dest: /etc/kibana/kibana.yml
       notify: restart Kibana
-      - name: Install Kibana
-  hosts: filebeat
+- name: Install filebeat
+  hosts: application-instance
   handlers:
     - name: restart filebeat
       become: true
@@ -107,4 +107,3 @@
       become: true
       command:
         cmd: filebeat setup
-        
