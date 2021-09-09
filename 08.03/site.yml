@@ -15,6 +15,7 @@
       systemd:
         name: elasticsearch
         state: restarted
+        enabled: true
   tasks:
     - name: "Download Elasticsearch's rpm"
       get_url:
@@ -27,7 +28,6 @@
       yum:
         name: "/tmp/elasticsearch-{{ elk_stack_version }}-x86_64.rpm"
         state: present
-#        enabled: true
     - name: Configure Elasticsearch
       become: true
       template:
@@ -42,6 +42,7 @@
       systemd:
         name: kibana
         state: restarted
+        enabled: true
   tasks:
     - name: Download Kibana rpm
       get_url:
@@ -59,10 +60,51 @@
       ansible.builtin.service:
         name: kibana
         state: started
-#        enabled: true
     - name: Configure Kibana
       become: true
       template:
         src: kibana.yml.j2
         dest: /etc/kibana/kibana.yml
       notify: restart Kibana
+      - name: Install Kibana
+  hosts: filebeat
+  handlers:
+    - name: restart filebeat
+      become: true
+      systemd:
+        name: filebeat
+        state: restarted
+        enabled: true
+  tasks:
+    - name: Download filebeat rpm
+      get_url:
+        url: "https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-{{ filebeat_version }}-x86_64.rpm"
+        dest: "/tmp/kibana-{{ filebeat_version }}-x86_64.rpm"
+      register: filebeat
+      until: filebeat is succeeded
+    - name: Install filebeat
+      become: true
+      yum:
+        name: "/tmp/kibana-{{ filebeat_version }}-x86_64.rpm"
+        state: present
+      notify: restart filebeat
+    - name: Start filebeat
+      ansible.builtin.service:
+        name: filebeat
+        state: started
+   - name: Configure filebeat
+      become: true
+      template:
+        src: filebeat.yml.j2
+        dest: /etc/filebeat/filebeat.yml
+      notify: restart filebeat
+    - name: Set filebeat systemwork
+      become: true
+      command:
+        cmd: filebeat module enable system
+        chdir: /usr/share/filebeat/bin
+    - name: Load Kibana dashboard
+      become: true
+      command:
+        cmd: filebeat setup
+        
