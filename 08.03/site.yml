@@ -103,7 +103,7 @@
       command:
         cmd: filebeat modules enable system
         chdir: /usr/share/filebeat/bin
-    - name: Load Kibana dashboard
-      become: true
-      command:
-        cmd: filebeat setup
+    #- name: Load Kibana dashboard
+    #  become: true
+    #  command:
+    #    cmd: filebeat setup
