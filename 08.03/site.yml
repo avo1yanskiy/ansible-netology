@@ -79,13 +79,13 @@
     - name: Download filebeat rpm
       get_url:
         url: "https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-{{ filebeat_version }}-x86_64.rpm"
-        dest: "/tmp/kibana-{{ filebeat_version }}-x86_64.rpm"
+        dest: "/tmp/filebeat-{{ filebeat_version }}-x86_64.rpm"
       register: filebeat
       until: filebeat is succeeded
     - name: Install filebeat
       become: true
       yum:
-        name: "/tmp/kibana-{{ filebeat_version }}-x86_64.rpm"
+        name: "/tmp/filebeat-{{ filebeat_version }}-x86_64.rpm"
         state: present
       notify: restart filebeat
     - name: Start filebeat
