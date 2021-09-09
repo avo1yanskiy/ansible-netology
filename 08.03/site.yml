@@ -117,6 +117,6 @@
       command:
         cmd: filebeat setup
         chdir: /usr/share/filebeat/bin
-        register: filebeat_setup
-        until: filebeat_setup is succeeded
+        #register: filebeat_setup
+        #until: filebeat_setup is succeeded
         notify: restart filebeat
