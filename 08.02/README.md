@@ -5,3 +5,9 @@
 - Устанавливает JAVA
 - Устанавливает Elasticsearch
 - </h3>Устанавливает Kibana<h3>
+
+
+
+tags: kibana
+tags: java
+tags: elastic
