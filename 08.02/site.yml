@@ -92,7 +92,7 @@
       unarchive:
         copy: false
         src: /tmp/kibana-7.14.1-linux-x86_64.tar.gz
-        dest: "{{ kibana_home }}""
+        dest: "{{ kibana_home }}"
         extra_opts: [--strip-components=1]
         creates: "{{ kibana_home }}/bin/kibana"
       tags: kibana
