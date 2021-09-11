@@ -1,16 +1,15 @@
-В нём должно быть описано: что делает playbook, какие у него есть параметры и теги.
 
-Elascticsearch role
+Установка Elasticsearch, Java, Kibana.
 =========
 
-Роль для установки Elasticsearch, Java, Kibana на хостах с ОС: CentOS
+Playbook установки Elasticsearch, Java, Kibana на хостах с ОС: CentOS
 
 Requirements
 ------------
 
 Поддерживаются только ОС семейств CentOS.
 
-Role Variables
+Playbook Variables
 --------------
 
 | Variable name | Default | Description |
@@ -21,12 +20,17 @@ Role Variables
 |                       |          |                         |
 | Kibana_version        | "7.14.1" | Параметр, который определяет какой версии Kibana будет установлен |                       
 
-Example Playbook
-----------------
+Playbook tags
+--------------
 
-    - hosts: all
-      roles:
-         - { role: mnt-homeworks-ansible }
+| Variable name | Default | Description |
+|-----------------------|----------|-------------------------|
+| Elasticsearch_version | "elastic"| По тегу можно выполнить устновку Elasticsearch |
+|                       |          |                         |
+| Java_jdk_version      | "java"   | По тегу можно выполнить устновку Java |                       
+|                       |          |                         |
+| Kibana_version        | "kibana" | По тегу можно выполнить устновку Kibana |                       
+
 
 License
 -------
@@ -36,10 +40,7 @@ MIT
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
-
-
-
+Aleksandr Volyanskiy, Netology Student course Devops engineer.
 
 Плайбук скачивает и устанавливает JAVA, Elasticsearch, Kibanaю.
 
