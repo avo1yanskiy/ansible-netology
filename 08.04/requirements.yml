@@ -1,5 +1,12 @@
 ---
-  - src: git@github.com:avo1yanskiy/kibana-role.git
+  #- src: git@github.com:avo1yanskiy/kibana-role.git
+  #  scm: git
+  #  version: v1.0
+  #  name: kibana_role
+
+  - src: https://github.com/netology-code/mnt-homeworks-ansible.git
     scm: git
-    version: v1.0
-    name: kibana_role
+    version: 2.0.0
+    name: elasticsearch_role
+
+
