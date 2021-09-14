@@ -9,4 +9,9 @@
     version: 2.0.0
     name: elasticsearch_role
 
+  - src: git@github.com:avo1yanskiy/filebeat-role.git
+    scm: git
+    version: main
+    name: filebeat_role
+
 
