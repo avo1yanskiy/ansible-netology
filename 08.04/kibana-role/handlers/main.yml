@@ -1,7 +1,0 @@
----
-# handlers file for kibana-role
-- name: restart Kibana
-  become: true
-  service:
-    name: Kibana
-    state: restarted
