@@ -2,12 +2,12 @@
 - name: Install Elasticsearch
   hosts: elasticsearch
   roles:
-    elasticsearch_role
+    - elasticsearch_role
 - name: Install Kibana
 hosts: kibana
 roles:
-    kibana_role
+    - kibana_role
 - name: Install filebeat
   hosts: application-instance
   roles:
-    filebeat_role
+    - filebeat_role
