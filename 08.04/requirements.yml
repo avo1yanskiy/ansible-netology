@@ -2,4 +2,4 @@
   - src: git@github.com:avo1yanskiy/kibana-role.git
     scm: git
     version: main
-    name: kibana_role 
+    name: kibana_role
