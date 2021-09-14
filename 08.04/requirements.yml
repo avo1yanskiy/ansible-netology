@@ -1,0 +1,5 @@
+---
+  - src: git@github.com:avo1yanskiy/kibana-role.git
+    scm: git
+    version: main
+     
