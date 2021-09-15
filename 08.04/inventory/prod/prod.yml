@@ -3,7 +3,7 @@ all:
  hosts:
  vars:
     ansible_connection: ssh
-    ansible_user: root
+    ansible_user: bubuntu
 elasticsearch:
  hosts:
   el-instance:
