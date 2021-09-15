@@ -7,12 +7,12 @@ all:
 elasticsearch:
  hosts:
   el-instance:
-   ansible_host: 193.32.219.43
+   ansible_host: 178.154.240.194
 kibana:
  hosts:
   k-instance:
-   ansible_host: 193.32.218.54
+   ansible_host: 178.154.252.75
 app:
  hosts:
   application-instance:
-   ansible_host: 178.154.241.42
+   ansible_host: 178.154.240.55
