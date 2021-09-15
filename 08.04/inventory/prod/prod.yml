@@ -4,15 +4,15 @@ all:
  vars:
     ansible_connection: ssh
     ansible_user: bubuntu
-elasticsearch:
+vm1:
  hosts:
   el-instance:
-   ansible_host: 178.154.240.225
-kibana:
+   ansible_host: 193.32.219.43
+vm2:
  hosts:
   k-instance:
-   ansible_host: 178.154.228.219
-app:
+   ansible_host: 193.32.218.54
+vm3:
  hosts:
   application-instance:
-   ansible_host: 178.154.240.113
+   ansible_host: 178.154.241.42
